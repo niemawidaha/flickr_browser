@@ -3,7 +3,9 @@ package com.portfolio.flickrbrowser;
 import android.app.SearchManager;
 import android.app.SearchableInfo;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.util.Log;
 import android.view.Menu;
 import android.widget.SearchView;
@@ -48,6 +50,11 @@ public class SearchActivity extends BaseActivity {
             public boolean onQueryTextSubmit(String query) {
                 Log.d(TAG, "onQueryTextSubmit: called");
 
+                // obtain the user data and implement the search activity
+                // pass in the key created from the main activity
+                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
+                sharedPreferences.edit().putString(FLICKR_QUERY,query).apply();
+
                 // this will help with returning to main activity
                 // the screen is not being updated
                 mSearchView.clearFocus();
@@ -68,6 +75,7 @@ public class SearchActivity extends BaseActivity {
             finish();
             return false;
         });
+
         Log.d(TAG, "onCreateOptionsMenu: returned" + true);
         return true;
     }

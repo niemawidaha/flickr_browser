@@ -5,6 +5,7 @@
     android:id="@+id/content_photo_detail"
     android:layout_width="match_parent"
     android:orientation="vertical"
+    android:background="@color/background"
     android:layout_height="match_parent"
     app:layout_behavior="@string/appbar_scrolling_view_behavior"
     tools:showIn="@layout/activity_photo_detail">
@@ -19,7 +20,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            app:cardCornerRadius="6dp">
+            app:cardCornerRadius="2dp">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -39,7 +40,7 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:contentDescription="@string/photo_content_desc"
-                    android:scaleType="fitCenter"
+                    android:scaleType="fitXY"
                     app:srcCompat="@drawable/baseline_image_black_48" />
 
                 <TextView

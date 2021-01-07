@@ -42,15 +42,25 @@ class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerViewA
         // this is where i get the items form the list and update the view
         // here i'll use picasso: which will parse our image urls + display the images
         // i have to download the data first
-        Photo photoItem = mPhotoList.get(position);
-        Log.d(TAG, "onBindViewHolder: " + photoItem.getTitle() + " ---> " + position);
 
-        Picasso.get().load(photoItem.getImage())
-                .error(R.drawable.baseline_image_black_48)
-                .placeholder(R.drawable.baseline_image_black_48)
-                .into(holder.thumbnail);
+        // determine if the user has entered a tag that is searchable and display error if not
+        // sets image to a placeholder if error
+        if (mPhotoList == null || (mPhotoList.size() == 0)) {
 
-        holder.title.setText(photoItem.getTitle());
+            // set the error screen for the user
+            holder.thumbnail.setImageResource(R.drawable.baseline_image_black_48);
+            holder.title.setText(R.string.empty_search);
+        } else {
+            Photo photoItem = mPhotoList.get(position);
+            Log.d(TAG, "onBindViewHolder: " + photoItem.getTitle() + " ---> " + position);
+
+            Picasso.get().load(photoItem.getImage())
+                    .error(R.drawable.baseline_image_black_48)
+                    .placeholder(R.drawable.baseline_image_black_48)
+                    .into(holder.thumbnail);
+
+            holder.title.setText(photoItem.getTitle());
+        }
     }
 
     @Override
@@ -63,7 +73,7 @@ class FlickrRecyclerViewAdapter extends RecyclerView.Adapter<FlickrRecyclerViewA
         //       return mPhotoList.size();
         //    else
         //    return 0;
-        return (mPhotoList != null) && (mPhotoList.size() != 0) ? mPhotoList.size() : 0;
+        return (mPhotoList != null) && (mPhotoList.size() != 0) ? mPhotoList.size() : 1;
     }
 
     void loadNewData(List<Photo> newPhotos){

@@ -11,6 +11,7 @@
     <string name="photo_content_desc">photo content description</string>
     <string name="activity_search_txt">Search</string>
     <string name="searchable_hint">Enter photo tags</string>
+    <string name="empty_search">No photos match your search.\n\nPlease use the search icon to try again</string>
 
 
 </resources>
