@@ -29,10 +29,22 @@
 
         </activity>
         <activity
+
             android:parentActivityName=".MainActivity"
             android:name=".SearchActivity"
             android:label="@string/title_activity_search"
-            android:theme="@style/Theme.FlickrBrowser.NoActionBar" />
+            android:theme="@style/Theme.FlickrBrowser.NoActionBar">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value=".MainActivity" />
+            <meta-data
+                android:name="android.app.searchable"
+                android:resource="@xml/searchable" />
+            <intent-filter>
+                <action android:name="android.intent.action.SEARCH"/>
+            </intent-filter>
+        </activity>
+
     </application>
 
 </manifest>

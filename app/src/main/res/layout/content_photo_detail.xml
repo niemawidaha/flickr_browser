@@ -31,13 +31,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:text="TextView" />
+                    android:text="@string/photo_author_txt" />
 
                 <ImageView
                     android:id="@+id/photo_image_iv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
+                    android:contentDescription="@string/photo_content_desc"
                     android:scaleType="fitCenter"
                     app:srcCompat="@drawable/baseline_image_black_48" />
 
@@ -46,14 +47,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:text="TextView" />
+                    android:text="@string/photo_title_txt" />
 
                 <TextView
                     android:id="@+id/photo_tags_tv"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
-                    android:text="TextView" />
+                    android:text="@string/photo_tag_txt" />
 
             </LinearLayout>
         </androidx.cardview.widget.CardView>
